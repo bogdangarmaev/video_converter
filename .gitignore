@@ -16,3 +16,4 @@ dist
 .vagrant
 .bash_history
 .idea/
+video_converter/.idea
