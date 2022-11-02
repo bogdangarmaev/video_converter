@@ -17,7 +17,6 @@ from video_converter.urls import url_patterns
 
 
 class TornadoApplication(tornado.web.Application):
-
     def __init__(self):
         tornado.web.Application.__init__(self, url_patterns, **settings)
 

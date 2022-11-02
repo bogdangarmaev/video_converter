@@ -18,6 +18,10 @@ settings = {}
 settings["debug"] = True
 settings["cookie_secret"] = "nNv3Rr29VyNY6jK77GlmSktOc"
 settings["login_url"] = "/login"
-settings["static_path"] = os.path.join(os.path.dirname(__file__), __BASE_PACKAGE__, "static")
-settings["template_path"] = os.path.join(os.path.dirname(__file__), __BASE_PACKAGE__, "templates")
+settings["static_path"] = os.path.join(
+    os.path.dirname(__file__), __BASE_PACKAGE__, "static"
+)
+settings["template_path"] = os.path.join(
+    os.path.dirname(__file__), __BASE_PACKAGE__, "templates"
+)
 settings["xsrf_cookies"] = False

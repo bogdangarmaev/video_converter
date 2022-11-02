@@ -14,6 +14,7 @@ from setuptools import find_packages, setup
 def read(*args):
     return open(join(dirname(__file__), *args)).read()
 
+
 class ToxTestCommand(distutils.cmd.Command):
     """Distutils command to run tests via tox with 'python setup.py test'.
 
@@ -24,6 +25,7 @@ class ToxTestCommand(distutils.cmd.Command):
     See https://docs.python.org/3/distutils/apiref.html#creating-a-new-distutils-command
     for more documentation on custom distutils commands.
     """
+
     description = "Run tests via 'tox'."
     user_options = []
 
@@ -35,52 +37,52 @@ class ToxTestCommand(distutils.cmd.Command):
 
     def run(self):
         self.announce("Running tests with 'tox'...", level=distutils.log.INFO)
-        return subprocess.call(['tox'])
+        return subprocess.call(["tox"])
 
 
-exec(open('video_converter/version.py').read())
+exec(open("video_converter/version.py").read())
 
-install_requires = [
-]
+install_requires = []
 
 tests_require = [
-    'coverage',
-    'flake8',
-    'pydocstyle',
-    'pylint',
-    'pytest-pep8',
-    'pytest-cov',
+    "coverage",
+    "flake8",
+    "pydocstyle",
+    "pylint",
+    "pytest-pep8",
+    "pytest-cov",
     # for pytest-runner to work, it is important that pytest comes last in
     # this list: https://github.com/pytest-dev/pytest-runner/issues/11
-    'pytest'
+    "pytest",
 ]
 
-exec(read('video_converter', 'version.py'))
+exec(read("video_converter", "version.py"))
 
 
-setup(name='video_converter',
-      version=__version__,  # noqa
-      description='Video converter',
-      long_description=read('README.md'),
-      author='bogdan',
-      author_email='bogdangarmaev@gmail.com',
-      url='https://github.com/yourname/video_converter',
-      classifiers=[
-          'Development Status :: 2 - Alpha',
-          'Intended Audience :: Developers',
-          'License :: OSI Approved :: MIT License',
-          'Natural Language :: English',
-          'Programming Language :: Python',
-          'Programming Language :: Python :: 3.10',
-          'Topic :: Internet'
-      ],
-      include_package_data=True,
-      install_requires=install_requires,
-      packages=find_packages(include=['video_converter*']),
-      test_suite='tests',
-      setup_requires=['pytest-runner'],
-      tests_require=tests_require,
-      cmdclass={
-        'test': ToxTestCommand,
-    }
+setup(
+    name="video_converter",
+    version=__version__,  # noqa
+    description="Video converter",
+    long_description=read("README.md"),
+    author="bogdan",
+    author_email="bogdangarmaev@gmail.com",
+    url="https://github.com/yourname/video_converter",
+    classifiers=[
+        "Development Status :: 2 - Alpha",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.10",
+        "Topic :: Internet",
+    ],
+    include_package_data=True,
+    install_requires=install_requires,
+    packages=find_packages(include=["video_converter*"]),
+    test_suite="tests",
+    setup_requires=["pytest-runner"],
+    tests_require=tests_require,
+    cmdclass={
+        "test": ToxTestCommand,
+    },
 )
