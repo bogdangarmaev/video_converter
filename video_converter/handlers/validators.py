@@ -7,4 +7,5 @@ def filename_is_supported_ffmpeg(filename: str) -> bool:
         '.y4m',
         '.mkv',
     )
-    return filename in available_formats
+    return filename.endswith(available_formats)
+
